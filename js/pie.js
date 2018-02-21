@@ -11,7 +11,7 @@ var color = d3.scaleOrdinal()
 // donut chart arc
 var arc2 = d3.arc()
     .outerRadius(radius - 10)
-    .innerRadius(radius - 70);
+    .innerRadius(radius - 90);
 
 // arc for the labels position
 var labelArc = d3.arc()
@@ -66,13 +66,7 @@ d3.csv("data.csv", function(error, data) {
     
 });
 
-// Helper function for animation of pie chart and donut chart
-function tweenPie(b) {
-  b.innerRadius = 0;
-  var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
-  return function(t) { return arc(i(t)); };
-}
-
+// Helper function for animation of donut chart
 function tweenDonut(b) {
   b.innerRadius = 0;
   var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
